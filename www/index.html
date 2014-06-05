@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery/jquery.mobile-1.4.2.css" />
+        <script src="cordova.js"></script>
+        <script src="js/jquery/jquery-2.1.1.js"></script>
+        <script src="js/jquery/jquery.mobile-1.4.2.js"></script>
+        <script src="js/handlebars/handlebars-v1.3.0.js"></script>
+        <script src="js/index.js"></script>
+        <title>Magic Formula</title>
+    </head>
+    <body>
+        <div data-role="page" id="magicformula">
+            <div data-role="header" data-position="fixed" data-theme="b">
+                <div width="100%" style="display:inline">
+                    <h1>神奇公式</h1>
+                </div>
+            </div>
+            <div data-role="content" data-theme="b">
+                <script id="magicformula-content-template" type="text/x-handlebars-template">
+                    {{#each list}}
+                        <li>
+                            <a href="#" class="magicformula-stockitem">
+                                <input type="hidden" value="{{ticker}}" />
+                                <div width="100%" style="display:inline">
+                                    <div style="float:left;">
+                                        <h2>{{title}}({{ticker}})</h2>
+                                        <p>投资回报率(ROTC): {{rotc}} 排名: {{rotcRank}}</p>
+                                        <p>最新市值: {{marketCap}}</p>
+                                    </div>
+                                    <div style="float:right;">
+                                        <h2 align="right">总排名: {{rank}}</h2>
+                                        <p align="right">回报率(EY): {{ey}} 排名: {{eyRank}}</p>
+                                        <p align="right">财报日期: {{earningsDate}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    {{/each}}
+                </script>
+                <ul data-role="listview" data-inset="true" id="magicformula-content">
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#magicformula" data-icon="info" class="ui-btn-active ui-state-persist">神奇公式</a></li>
+                        <li><a href="#grahamformula" data-icon="info">格雷厄姆公式</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="grahamformula">
+            <div data-role="header" data-position="fixed" data-theme="b">
+                <h1>神奇公式</h1>
+            </div>
+            <div data-role="content" data-theme="b">
+                <script id="grahamformula-content-template" type="text/x-handlebars-template">
+                    {{#each list}}
+                        <li>
+                            <a href="#" class="grahamformula-stockitem">
+                                <input type="hidden" value="{{ticker}}" />
+                                <h2>{{title}}({{ticker}})</h2>
+                            </a>
+                        </li>
+                    {{/each}}
+                </script>
+                <ul data-role="listview" data-inset="true" id="grahamformula-content">
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#magicformula" data-icon="info">神奇公式</a></li>
+                        <li><a href="#grahamformula" data-icon="info" class="ui-btn-active ui-state-persist">格雷厄姆公式</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
