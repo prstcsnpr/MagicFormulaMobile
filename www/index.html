@@ -35,9 +35,9 @@
     <body>
         <div data-role="page" id="magicformula">
             <div data-role="header" data-position="fixed" data-theme="b">
-                <div width="100%" style="display:inline">
-                    <h1>神奇公式</h1>
-                </div>
+                <a href="#" data-role="button" data-icon="info">宏观</a>
+                <h1 id="magicformula-header"></h1>
+                <a href="#" data-role="button" class="ui-btn-right" data-icon="refresh">刷新</a>
             </div>
             <div data-role="content" data-theme="b">
                 <script id="magicformula-content-template" type="text/x-handlebars-template">
@@ -45,17 +45,13 @@
                         <li>
                             <a href="#" class="magicformula-stockitem">
                                 <input type="hidden" value="{{ticker}}" />
-                                <div width="100%" style="display:inline">
-                                    <div style="float:left;">
-                                        <h2>{{title}}({{ticker}})</h2>
-                                        <p>投资回报率(ROTC): {{rotc}} 排名: {{rotcRank}}</p>
-                                        <p>最新市值: {{marketCap}}</p>
-                                    </div>
-                                    <div style="float:right;">
-                                        <h2 align="right">总排名: {{rank}}</h2>
-                                        <p align="right">回报率(EY): {{ey}} 排名: {{eyRank}}</p>
-                                        <p align="right">财报日期: {{earningsDate}}</p>
-                                    </div>
+                                <div  class="ui-grid-a">
+                                    <div class="ui-block-a"><h2>{{title}}</h2></div>
+                                    <div class="ui-block-b"><h2 align="right">{{ticker}}</h2></div>
+                                    <div class="ui-block-a"><p>ROTC: {{rotc}}</p></div>
+                                    <div class="ui-block-b"><p align="right">EY: {{ey}}</p></div>
+                                    <div class="ui-block-a"><p>最新市值: {{marketCap}}</p></div>
+                                    <div class="ui-block-b"><p align="right">财报日期: {{earningsDate}}</p></div>
                                 </div>
                             </a>
                         </li>
@@ -75,7 +71,9 @@
         </div>
         <div data-role="page" id="grahamformula">
             <div data-role="header" data-position="fixed" data-theme="b">
-                <h1>神奇公式</h1>
+                <a href="#" data-role="button" data-icon="info">宏观</a>
+                <h1>格雷厄姆公式</h1>
+                <a href="#" data-role="button" class="ui-btn-right" data-icon="refresh">刷新</a>
             </div>
             <div data-role="content" data-theme="b">
                 <script id="grahamformula-content-template" type="text/x-handlebars-template">
