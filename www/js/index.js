@@ -9,6 +9,10 @@ $(document).on("pageinit", "#magicformula", function(){
 		loadMagicFormulaData();
 	});
 	
+	$(document).on("tap", "#magicformula-header-refresh", function() {
+		loadMagicFormulaData();
+	});
+	
 	function generatePage(data) {
 		var list = new Array();
 		for (i in data.list) {
