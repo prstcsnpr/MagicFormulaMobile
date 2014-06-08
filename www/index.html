@@ -35,15 +35,15 @@
     <body>
         <div data-role="page" id="magicformula">
             <div data-role="header" data-position="fixed" data-theme="b">
-                <a href="#" data-role="button" data-icon="info">宏观</a>
+                <!-- a href="#" data-role="button" data-icon="info">宏观</a-->
                 <h1 id="magicformula-header"></h1>
-                <a href="#" data-role="button" class="ui-btn-right" data-icon="refresh">刷新</a>
+                <a href="#" data-iconpos="notext" data-role="button" class="ui-btn-right" data-icon="refresh">刷新</a>
             </div>
             <div data-role="content" data-theme="b">
                 <script id="magicformula-content-template" type="text/x-handlebars-template">
                     {{#each list}}
                         <li>
-                            <a href="#" class="magicformula-stockitem">
+                            <div href="#" class="magicformula-stockitem">
                                 <input type="hidden" value="{{ticker}}" />
                                 <div  class="ui-grid-a">
                                     <div class="ui-block-a"><h2>{{title}}</h2></div>
@@ -53,21 +53,21 @@
                                     <div class="ui-block-a"><p>最新市值: {{marketCap}}</p></div>
                                     <div class="ui-block-b"><p align="right">财报日期: {{earningsDate}}</p></div>
                                 </div>
-                            </a>
+                            </div>
                         </li>
                     {{/each}}
                 </script>
                 <ul data-role="listview" data-inset="true" id="magicformula-content">
                 </ul>
             </div>
-            <div data-role="footer" data-position="fixed" data-theme="b">
+            <!--div data-role="footer" data-position="fixed" data-theme="b">
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#magicformula" data-icon="info" class="ui-btn-active ui-state-persist">神奇公式</a></li>
                         <li><a href="#grahamformula" data-icon="info">格雷厄姆公式</a></li>
                     </ul>
                 </div>
-            </div>
+            </div-->
         </div>
         <div data-role="page" id="grahamformula">
             <div data-role="header" data-position="fixed" data-theme="b">
