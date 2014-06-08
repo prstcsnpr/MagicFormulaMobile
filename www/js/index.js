@@ -48,7 +48,7 @@ $(document).on("pageinit", "#magicformula", function(){
 					data = JSON.parse(localStorage.result);
 					generatePage(data);
 				} else {
-					alert("网络异常");
+					$("#magicformula-content").text("网络异常, 请刷新");
 				}
 			}
 		});

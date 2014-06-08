@@ -36,7 +36,7 @@
         <div data-role="page" id="magicformula">
             <div data-role="header" data-position="fixed" data-theme="b">
                 <!-- a href="#" data-role="button" data-icon="info">宏观</a-->
-                <h1 id="magicformula-header"></h1>
+                <h1 id="magicformula-header">神奇公式</h1>
                 <a href="#" id="magicformula-header-refresh" data-iconpos="notext" data-role="button" class="ui-btn-right" data-icon="refresh">刷新</a>
             </div>
             <div data-role="content" data-theme="b">
@@ -46,8 +46,8 @@
                             <div href="#" class="magicformula-stockitem">
                                 <input type="hidden" value="{{ticker}}" />
                                 <div  class="ui-grid-a">
-                                    <div class="ui-block-a"><h2>{{title}}</h2></div>
-                                    <div class="ui-block-b"><h2 align="right">{{ticker}}</h2></div>
+                                    <div class="ui-block-a"><h2>{{rank}}. {{title}}({{ticker}})</h2></div>
+                                    <div class="ui-block-b"><h2 align="right"></h2></div>
                                     <div class="ui-block-a"><p>ROTC: {{rotc}}</p></div>
                                     <div class="ui-block-b"><p align="right">EY: {{ey}}</p></div>
                                     <div class="ui-block-a"><p>最新市值: {{marketCap}}</p></div>
