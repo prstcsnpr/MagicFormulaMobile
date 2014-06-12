@@ -27,14 +27,14 @@
         <link rel="stylesheet" type="text/css" href="css/jquery/jquery.mobile-1.4.2.css" />
         <script src="cordova.js"></script>
         <script src="js/jquery/jquery-2.1.1.js"></script>
-        <script src="js/jquery/jquery.mobile-1.4.2.js"></script>
         <script src="js/handlebars/handlebars-v1.3.0.js"></script>
+        <script src="js/jquery/jquery.mobile-1.4.2.js"></script>
         <script src="js/index.js"></script>
         <title>Magic Formula</title>
     </head>
     <body>
         <div data-role="page" id="magicformula">
-            <div data-role="header" data-position="fixed" data-theme="b">
+            <div data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
                 <!-- a href="#" data-role="button" data-icon="info">宏观</a-->
                 <h1 id="magicformula-header">神奇公式</h1>
                 <a href="#" id="magicformula-header-refresh" data-iconpos="notext" data-role="button" class="ui-btn-right" data-icon="refresh">刷新</a>
@@ -45,9 +45,8 @@
                         <li>
                             <div href="#" class="magicformula-stockitem">
                                 <input type="hidden" value="{{ticker}}" />
+                                <h2>{{rank}}. {{title}}({{ticker}})</h2>
                                 <div  class="ui-grid-a">
-                                    <div class="ui-block-a"><h2>{{rank}}. {{title}}({{ticker}})</h2></div>
-                                    <div class="ui-block-b"><h2 align="right"></h2></div>
                                     <div class="ui-block-a"><p>ROTC: {{rotc}}</p></div>
                                     <div class="ui-block-b"><p align="right">EY: {{ey}}</p></div>
                                     <div class="ui-block-a"><p>最新市值: {{marketCap}}</p></div>
