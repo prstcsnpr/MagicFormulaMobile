@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="prstcsnpr.magicformula" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MagicFormulaMobile</name>
+    <name>神奇公式</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        乔尔·格林布拉特(Joel Greenblatt)的神奇公式中国版
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="prstcsnpr@me.com" href="#">
+        土丁
     </author>
     <content src="index.html" />
     <access origin="*" />
