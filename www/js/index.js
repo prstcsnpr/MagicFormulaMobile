@@ -2,10 +2,42 @@
  * 
  */
 
+var app = { 
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },  
+    // Bind Event Listeners
+    //  
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },  
+    // deviceready Event Handler
+    //  
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicity call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
+        StatusBar.hide();
+    },  
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+    }
+};
 
 $(document).on("pageinit", "#magicformula", function(){
 	
-	$(document).on("pagebeforeshow", "#magicformula", function(){
+	$(document).on("pagebeforeshow", "#magicformula", function() {
 		loadMagicFormulaData();
 	});
 	
@@ -28,7 +60,7 @@ $(document).on("pageinit", "#magicformula", function(){
 			item.earningsDate = data.list[i].earningsDate
 			list[i] = item;
 		}
-		$("#magicformula-header").text("神奇公式(" + data.date + ")");
+		$("#magicformula-header").text(data.date);
 		var result = {"list":list};
 		$("#magicformula-content").html(Handlebars.compile($("#magicformula-content-template").html())(result));
 		$("#magicformula-content").listview("refresh");
@@ -40,16 +72,20 @@ $(document).on("pageinit", "#magicformula", function(){
 			dataType:"json",
 			timeout:1000,
 			success:function(data, status) {
+				$("#magicformula-content-error").hide();
 				generatePage(data);
-				localStorage.result = JSON.stringify(data)
+				$("#magicformula-content").show();
 			},
 			error:function(xhr, status, error) {
-				if (localStorage.result) {
-					data = JSON.parse(localStorage.result);
-					generatePage(data);
+				$("#magicformula-content").hide();
+				if (status == "error") {
+					$("#magicformula-content-error").html("<p style='text-align:center'>网络异常</p><p style='text-align:center'>请刷新</p>");
+				} else if (status == "timeout") {
+					$("#magicformula-content-error").html("<p style='text-align:center'>获取数据超时</p><p style='text-align:center'>请刷新</p>");
 				} else {
-					$("#magicformula-content").text("网络异常, 请刷新");
+					$("#magicformula-content-error").html("<p style='text-align:center'>获取数据异常</p><p style='text-align:center'>请刷新</p>");
 				}
+				$("#magicformula-content-error").show();
 			}
 		});
 	}
