@@ -36,7 +36,7 @@
         <div data-role="page" id="magicformula">
             <div data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
                 <!-- a href="#" data-role="button" data-icon="info">宏观</a-->
-                <h1 id="magicformula-header">神奇公式</h1>
+                <h1 id="magicformula-header"></h1>
                 <a href="#" id="magicformula-header-refresh" data-iconpos="notext" data-role="button" class="ui-btn-right" data-icon="refresh">刷新</a>
             </div>
             <div data-role="content" data-theme="b">
@@ -56,8 +56,9 @@
                         </li>
                     {{/each}}
                 </script>
-                <ul data-role="listview" data-inset="true" id="magicformula-content">
-                </ul>
+				<ul data-role="listview" data-inset="true" id="magicformula-content">
+				</ul>
+				<div id="magicformula-content-error"></div>
             </div>
             <!--div data-role="footer" data-position="fixed" data-theme="b">
                 <div data-role="navbar">
