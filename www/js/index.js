@@ -48,15 +48,14 @@ $(document).on("pageinit", "#magicformula", function(){
 	function generatePage(data) {
 		var list = new Array();
 		for (i in data.list) {
-			var item = {};
-			item.ticker = data.list[i].code;
-			item.title = data.list[i].name;
+			var item = {};			item.ticker = data.list[i].ticker;
+			item.title = data.list[i].title;
 			item.rotc = data.list[i].rotc;
 			item.ey = data.list[i].ey;
 			item.rank = data.list[i].rank;
-			item.rotcRank = data.list[i].rotcRank;
-			item.eyRank = data.list[i].eyRank;
-			item.marketCap = data.list[i].marketCap
+			//item.rotcRank = data.list[i].rotcRank;
+			//item.eyRank = data.list[i].eyRank;
+			item.marketCap = data.list[i].marketCapital
 			item.earningsDate = data.list[i].earningsDate
 			list[i] = item;
 		}
@@ -68,7 +67,7 @@ $(document).on("pageinit", "#magicformula", function(){
 	
 	function loadMagicFormulaData() {
 		$.ajax({
-			url:"http://bcs.duapp.com/magicformula/magicformula.html",
+			url:"http://magicformula.mouwuming.com/magicformula/showmagicformula",
 			dataType:"json",
 			timeout:1000,
 			success:function(data, status) {
