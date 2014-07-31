@@ -43,45 +43,49 @@
                 <script id="magicformula-content-template" type="text/x-handlebars-template">
                     {{#each list}}
                         <li>
-                            <div href="#" class="magicformula-stockitem">
+                            <a href="#stockdata" class="magicformula-stockitem">
                                 <input type="hidden" value="{{ticker}}" />
                                 <h2>{{rank}}. {{title}}({{ticker}})</h2>
-                                <div  class="ui-grid-a">
+                                <div class="ui-grid-a">
                                     <div class="ui-block-a"><p>ROTC: {{rotc}}</p></div>
                                     <div class="ui-block-b"><p align="right">EY: {{ey}}</p></div>
                                     <div class="ui-block-a"><p>最新市值: {{marketCap}}</p></div>
                                     <div class="ui-block-b"><p align="right">财报日期: {{earningsDate}}</p></div>
                                 </div>
-                            </div>
+                            </a>
                         </li>
                     {{/each}}
                 </script>
 				<ul data-role="listview" data-inset="true" id="magicformula-content">
 				</ul>
-				<div id="magicformula-content-error"></div>
             </div>
-            <!--div data-role="footer" data-position="fixed" data-theme="b">
+            <div data-role="footer" data-position="fixed" data-theme="b" data-tap-toggle="false">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#magicformula" data-icon="info" class="ui-btn-active ui-state-persist">神奇公式</a></li>
-                        <li><a href="#grahamformula" data-icon="info">格雷厄姆公式</a></li>
+                        <li><a href="#magicformula" class="ui-btn-active ui-state-persist">神奇公式</a></li>
+                        <li><a href="#grahamformula">格雷厄姆公式</a></li>
                     </ul>
                 </div>
-            </div-->
+            </div>
         </div>
         <div data-role="page" id="grahamformula">
-            <div data-role="header" data-position="fixed" data-theme="b">
-                <a href="#" data-role="button" data-icon="info">宏观</a>
-                <h1>格雷厄姆公式</h1>
-                <a href="#" data-role="button" class="ui-btn-right" data-icon="refresh">刷新</a>
+            <div data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
+                <h1 id="grahamformula-header"></h1>
+                <a href="#" id="grahamformula-header-refresh" data-iconpos="notext" data-role="button" class="ui-btn-right" data-icon="refresh">刷新</a>
             </div>
             <div data-role="content" data-theme="b">
                 <script id="grahamformula-content-template" type="text/x-handlebars-template">
                     {{#each list}}
                         <li>
-                            <a href="#" class="grahamformula-stockitem">
+                            <a href="#stockdata" class="grahamformula-stockitem">
                                 <input type="hidden" value="{{ticker}}" />
                                 <h2>{{title}}({{ticker}})</h2>
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a"><p>OER: {{ownersEquityRatio}}</p></div>
+                                    <div class="ui-block-b"><p align="right">PE: {{pe}}</p></div>
+                                    <div class="ui-block-a"><p>最新市值: {{marketCapital}}</p></div>
+                                    <div class="ui-block-b"><p align="right">财报日期: {{earningsDate}}</p></div>
+                                </div>
                             </a>
                         </li>
                     {{/each}}
@@ -89,14 +93,87 @@
                 <ul data-role="listview" data-inset="true" id="grahamformula-content">
                 </ul>
             </div>
-            <div data-role="footer" data-position="fixed" data-theme="b">
+            <div data-role="footer" data-position="fixed" data-theme="b" data-tap-toggle="false">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#magicformula" data-icon="info">神奇公式</a></li>
-                        <li><a href="#grahamformula" data-icon="info" class="ui-btn-active ui-state-persist">格雷厄姆公式</a></li>
+                        <li><a href="#magicformula">神奇公式</a></li>
+                        <li><a href="#grahamformula" class="ui-btn-active ui-state-persist">格雷厄姆公式</a></li>
                     </ul>
                 </div>
             </div>
         </div>
+        <div data-role="page" id="stockdata">
+        	<div data-role="header" data-position="fixed" data-theme="b" data-tap-toggle="false">
+                <h1 id="stockdata-header"></h1>
+                <a href="#" id="stockdata-header-refresh" data-iconpos="notext" data-role="button" class="ui-btn-right" data-icon="refresh">刷新</a>
+            </div>
+            <div data-role="content" data-theme="b">
+            	<script id="stockdata-content-template" type="text/x-handlebars-template">
+                	{{#each list}}
+                		<li>
+            				<div class="ui-grid-a">
+            					<div class="ui-block-a"><p>{{year}}</p></div>
+                				<div class="ui-block-b"><p align="right">{{value}}</p></div>
+                			</div>
+                		</li>
+                	{{/each}}
+            	</script>
+            	<!--select id="stockdata-content-type" data-native-menu="false">
+         			<option value="mon">ROTC</option>
+         			<option value="tue">ROE</option>
+         			<option value="wed">自由现金流</option>
+         			<option value="thu">资产负债率</option>
+         			<option value="fri">流动比率</option>
+         			<option value="sat">费用率</option>
+         			<option value="sun">毛利率</option>
+        		</select>
+            	<ul data-role="listview" data-inset="true" id="stockdata-content">
+				</ul-->
+				<div data-role="collapsible">
+					<h4>有形资产回报率(ROTC)</h4>
+					<ul data-role="listview" id="stockdata-content-rotc">
+					</ul>
+				</div>
+				<div data-role="collapsible">
+					<h4>自由现金流(FCF)</h4>
+					<ul data-role="listview" id="stockdata-content-fcf">
+					</ul>
+				</div>
+				<div data-role="collapsible">
+					<h4>净资产收益率(ROE)</h4>
+					<ul data-role="listview" id="stockdata-content-roe">
+					</ul>
+				</div>
+				<div data-role="collapsible">
+					<h4>毛利率</h4>
+					<ul data-role="listview" id="stockdata-content-gross-profit-margin">
+					</ul>
+				</div>
+				<div data-role="collapsible">
+					<h4>流动比率</h4>
+					<ul data-role="listview" id="stockdata-content-cr">
+					</ul>
+				</div>
+				<div data-role="collapsible">
+					<h4>所有者权益比率</h4>
+					<ul data-role="listview" id="stockdata-content-owner-s-equity-ratio">
+					</ul>
+				</div>
+				<div data-role="collapsible">
+					<h4>三费占比</h4>
+					<ul data-role="listview" id="stockdata-content-3-fee">
+					</ul>
+				</div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b" data-tap-toggle="false">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#magicformula">神奇公式</a></li>
+                        <li><a href="#grahamformula">格雷厄姆公式</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+		</div>
     </body>
 </html>
